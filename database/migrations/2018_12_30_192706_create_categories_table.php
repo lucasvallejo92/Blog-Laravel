@@ -16,7 +16,7 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('name', 64); // Category name. "Categoria de Interes"
+            $table->string('name', 128); // Category name. "Categoria de Interes"
             $table->string('slug', 128)->unique(); // Friendly URL. "pagina.com/categoria-de-interes"
             $table->mediumText('body')->nulleable(); // Optional
 
