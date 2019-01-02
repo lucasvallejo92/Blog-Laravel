@@ -22,10 +22,10 @@ class CreatePostsTable extends Migration
             $table->string('name', 128); // Post name. "Post de Interes"
             $table->string('slug', 128)->unique(); // Friendly URL. "pagina.com/post-de-interes"
 
-            $table->mediumText('excerpt')->nulleable();
+            $table->mediumText('excerpt')->nullable();
             $table->text('body');
             $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('DRAFT');
-            $table->string('file', 128)->nulleable();
+            $table->string('file', 128)->nullable();
 
             $table->timestamps();
 
