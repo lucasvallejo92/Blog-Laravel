@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-md-center">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Lista de Categorías 
-                    <a href="{{ route('categories.create') }}" class="pull-right btn btn-sm btn-primary">
+                    <a href="{{ route('categories.create') }}" class="float-right btn btn-sm btn-primary">
                         Crear
                     </a>
                 </div>
@@ -44,7 +44,6 @@
                             @endforeach
                         </tbody>   
                     </table>     	
-
                     {{ $categories->render() }}
                 </div>
             </div>

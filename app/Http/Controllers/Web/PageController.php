@@ -11,16 +11,18 @@ use App\Category;
 class PageController extends Controller
 {
     public function blog(){
-        $posts = Post::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate();
-        return view('web.posts', ['posts' => $posts]);
+        $categories = Category::all();
+        $posts = Post::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(6);
+        return view('web.posts', ['posts' => $posts, 'categories' => $categories]);
     }
 
     public function category($slug){
+        $categories = Category::all();
         $category = Category::where('slug', $slug)->pluck('id')->first(); //Pluck return just the id
         $posts = Post::where('category_id', $category)
             ->orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate();
 
-        return view('web.posts', ['posts' => $posts]);
+        return view('web.posts', ['posts' => $posts, 'categories' => $categories]);
     }
 
     public function post($slug){
@@ -29,11 +31,12 @@ class PageController extends Controller
     }
 
     public function tag($slug){
+        $categories = Category::all();
         $posts = Post::whereHas('tags', function($query) use($slug){
             $query->where('slug', $slug);
         })
         ->orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate();
 
-        return view('web.posts', ['posts' => $posts]);
+        return view('web.posts', ['posts' => $posts, 'categories' => $categories]);
     }
 }
