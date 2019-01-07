@@ -16,3 +16,8 @@
       </article>
 
 @endsection
+
+@section('scripts')
+  <script src="{{ asset('vendor/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js') }}"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+@endsection

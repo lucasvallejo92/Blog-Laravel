@@ -20,6 +20,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/clean-blog.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/ckeditor/plugins/codesnippet/lib/highlight/styles/github.css') }}" rel="stylesheet">
 
   </head>
 
