@@ -26,7 +26,7 @@
 	</label>
 </div>
 <div class="form-group">
-	{{ Form::label('tags', 'Etiquetas') }}
+	{{ Form::label('tags', null, 'Etiquetas') }}
 	<div>
 	@foreach($tags as $tag)
 		<label>

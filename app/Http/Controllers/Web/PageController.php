@@ -10,11 +10,14 @@ use App\Category;
 
 class PageController extends Controller
 {
-    public function blog(){
+    public function blog(Request $request){
         $categories = Category::all();
-        $posts = Post::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(6);
+        $search = $request->get('search');
+        
+        $posts = Post::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->search($search)->paginate(6);
         return view('web.posts', ['posts' => $posts, 'categories' => $categories]);
     }
+
 
     public function category($slug){
         $categories = Category::all();

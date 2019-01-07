@@ -73,9 +73,12 @@
                     </li>
                 @endguest
                 <li class="nav-item">
-                    <form action="#" method="GET">
-                        <input type="text" name="search" placeholder="Buscar..." class="form-control mr-sm-2 search-box"/>
-                    </form>
+                    {{ Form::open(['route' => 'blog', 'method' => 'GET', 'class' => 'form-inline']) }}
+                        <div class="form-group">
+                            {{ Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Buscar']) }}
+                        </div>
+                    {{ Form::close() }}
+                    
                 </li>
             </ul>
           </div>
